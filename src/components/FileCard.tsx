@@ -45,6 +45,14 @@ export const FileCard = ({ file, onDelete }: FileCardProps) => {
     return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
   };
 
+  const handleDeleteConfirm = () => {
+    const isConfirmed = window.confirm(`Apakah Anda yakin ingin menghapus file "${file.name}"?`);
+
+    if (isConfirmed) {
+      onDelete();
+    }
+  };
+
   return (
     <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300">
       <div className="relative aspect-video bg-muted flex items-center justify-center overflow-hidden">
@@ -90,7 +98,7 @@ export const FileCard = ({ file, onDelete }: FileCardProps) => {
           <Button
             variant="outline"
             size="sm"
-            onClick={onDelete}
+            onClick={handleDeleteConfirm}
           >
             <Trash2 className="w-4 h-4" />
           </Button>

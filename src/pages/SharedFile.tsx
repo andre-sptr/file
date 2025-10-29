@@ -47,7 +47,7 @@ const SharedFile = () => {
   };
 
   const copyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
+    navigator.clipboard.writeText(file.url);
     toast.success("Link copied to clipboard!");
   };
 
